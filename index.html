@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<script>
+    // Définir la date de sortie du prochain tome
+    var releaseDate = new Date("2023-11-01T14:57:00").getTime();
+
+    // Mettre à jour le compte à rebours toutes les secondes
+    var countdownFunction = setInterval(function() {
+
+        // Obtenir la date et l'heure actuelles
+        var now = new Date().getTime();
+
+        // Trouver la distance entre maintenant et la date de sortie
+        var distance = releaseDate - now;
+
+        // Calculs du temps pour jours, heures, minutes et secondes
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Afficher le résultat dans l'élément avec id="timer"
+        document.getElementById("days").innerText = days;
+        document.getElementById("hours").innerText = hours;
+        document.getElementById("minutes").innerText = minutes;
+        document.getElementById("seconds").innerText = seconds;
+
+        // Si le compte à rebours est terminé, afficher le texte
+        if (distance < 0) {
+            clearInterval(countdownFunction);
+            document.getElementById("countdownTimer").style.display = "none";
+            document.getElementById("releaseContent").style.display = "block";
+        }
+    }, 1000);
+</script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Livre</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Les Connexions Invisibles</h1>
+    </header>
+    <main>
+        <section class="tome">
+            <div class="cover">
+                <img src="couverture-tome1.jpg" alt="Couverture du tome 1">
+            </div>
+            <div class="content">
+                <h2>Tome 1: Sous-titre du tome 1</h2>
+                <p>Contenu du tome 1...</p>
+            </div>
+        </section>
+        <section id="releaseContent" class="tome">
+            <div class="cover">
+                <img src="couverture-tome1.jpg" alt="Couverture du tome 1">
+            </div>
+            <div class="content">
+                <h2>Tome 2: Sous-titre du tome 1</h2>
+                <p>Contenu du tome 1...</p>
+            </div>
+        </section>
+        <section id="countdownTimer" class="timer-wrapper">
+            <h2>Sortie du prochain tome dans :</h2>
+            <div id="timer">
+                <span id="days"></span>jours
+                <span id="hours"></span>heures
+                <span id="minutes"></span>minutes
+                <span id="seconds"></span>secondes
+            </div>
+        </section>
+    </main>
+
+
+    
+    <div id="releaseContent" class="tome" style="display:none;">
+        <!-- Le contenu à afficher après le compte à rebours -->
+        <h2>Nouveau Tome Disponible!</h2>
+        <p>Découvrez le dernier tome de l'aventure ici!</p>
+    </div>
+
+    <!-- Ajoutez d'autres tomes ici en suivant la même structure -->
+
+    <footer>
+        <p>© Tous droits réservés. Litsu et Jeremylo1, 2023.</p>
+    </footer>
+
+</body>
+
+</html>

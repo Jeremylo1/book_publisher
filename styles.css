@@ -1,0 +1,137 @@
+html,
+body {
+    height: 100%;
+    /* permet au body de prendre toute la hauteur disponible */
+    margin: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    /* organise le contenu en colonne */
+}
+
+header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #212121;
+    border-bottom: 3px solid #333;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.tome {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+}
+
+.tome+.tome {
+    margin-top: 40px;
+    /* ajoute un espace entre les tomes */
+}
+
+/* Styles communs des tomes et du timer */
+.tome,
+.timer-wrapper {
+    background-color: #333;
+    /* Couleur de fond */
+    color: #fff;
+    /* Couleur du texte */
+    margin-bottom: 20px;
+    /* Espace en dessous de chaque section */
+    padding: 20px;
+    /* Espace intérieur */
+    border-radius: 10px;
+    /* Bordures arrondies */
+}
+
+/* Spécifiquement pour le timer */
+.timer-wrapper h2 {
+    margin-bottom: 15px;
+    /* Espace en dessous du titre */
+}
+
+.cover img {
+    max-width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+.content {
+    flex: 1;
+    padding-left: 20px;
+}
+
+.content h2 {
+    margin-top: 0;
+}
+
+main {
+    flex: 1;
+    /* permet à la balise main d'occuper tout l'espace disponible */
+    padding: 20px;
+    /* ajout de l'espace intérieur pour le contenu principal */
+    overflow-y: auto;
+    /* assurez-vous que le contenu principal défile correctement */
+}
+
+footer {
+    background-color: #212121;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto;
+    /* cette propriété pousse le footer vers le bas */
+}
+
+/* TIMER */
+#countdownTimer {
+    text-align: center;
+    margin: 20px;
+    padding: 10px;
+    color: #fff;
+}
+
+#timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#timer span {
+    margin: 0 10px;
+    padding: 5px 10px;
+    background-color: #444;
+    /* Un peu plus clair que le fond */
+    border-radius: 5px;
+    min-width: 50px;
+    /* Pour s'assurer que les boîtes ont une largeur fixe */
+    display: inline-block;
+    /* Permet d'avoir les éléments sur la même ligne */
+}
+
+/* Styles du contenu de sortie une fois le compte à rebours terminé */
+#releaseContent {
+    background-color: #333;
+    color: #fff;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+    /* Caché par défaut */
+}
